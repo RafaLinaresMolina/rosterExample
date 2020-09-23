@@ -150,41 +150,46 @@ const asignarParaPelear = () => {
 
 // Funcion para simular la batalla, ira en el onclick del button Luchar
 const simularBatalla = () => {
+  let alive = true;
 
-    //Sin PJ seleccionados no hay pelea
-    if(!pjSelec1 || !pjSelec2){
-        alert('Debes seleccionar personajes')
-    } else {
-        while (pjSelec1.hp > 0 && pjSelec2.hp > 0) {
+  //Sin PJ seleccionados no hay pelea
+  if (!pjSelec1 || !pjSelec2) {
+    alert("Debes seleccionar personajes");
+  } else {
+    while (alive) {
+      if (alive) {
+        console.log(`TURNO DE ${pjSelec1.name}`);
         console.log(`Personaje ${pjSelec1.name} ataca a ${pjSelec2.name}`);
         console.log(
-          `\t${pjSelec1.name} tiene ${pjSelec1.hp} / ${pjSelec2.name} tiene ${pjSelec2.hp}`
+          `\t${pjSelec1.name} : ${pjSelec1.hp} / ${pjSelec2.name} : ${pjSelec2.hp}`
         );
-      
-        pjSelec1.recibeDmg(pjSelec2.dmg);
-      
-        console.log(
-          `${pjSelec1.name} tiene ${pjSelec1.hp} / ${pjSelec2.name} tiene ${pjSelec2.hp}`
-        );
-      
-        console.log(`Personaje ${pjSelec2.name} ataca a ${pjSelec1.name}`);
-        console.log(
-          `\t${pjSelec1.name} tiene ${pjSelec1.hp} / ${pjSelec2.name} tiene ${pjSelec2.hp}`
-        );
-      
         pjSelec2.recibeDmg(pjSelec1.dmg);
-      
+        alive = pjSelec2.hp > 0;
         console.log(
-          `\t${pjSelec1.name} tiene ${pjSelec1.hp} / ${pjSelec2.name} tiene ${pjSelec2.hp}`
+          `\t${pjSelec1.name} : ${pjSelec1.hp} / ${pjSelec2.name} : ${pjSelec2.hp}`
         );
       }
+
+      if (alive) {
+        console.log(`TURNO DE ${pjSelec2.name}`);
+        console.log(`Personaje ${pjSelec2.name} ataca a ${pjSelec1.name}`);
+        console.log(
+          `\t${pjSelec2.name} : ${pjSelec2.hp} / ${pjSelec1.name} : ${pjSelec1.hp}`
+        );
+
+        pjSelec1.recibeDmg(pjSelec2.dmg);
+        alive = pjSelec1.hp > 0;
+        console.log(
+          `\t${pjSelec2.name} : ${pjSelec2.hp} / ${pjSelec1.name} : ${pjSelec1.hp}`
+        );
+      }
+
       
-      // Anunciamos campeon
-      pjSelec1.hp === 0
-        ? console.log(`${pjSelec2.name} Ha ganado`)
-        : console.log(`${pjSelec1.name} Ha ganado`);
     }
-    
-}
 
-
+    // Anunciamos campeon
+    pjSelec1.hp === 0
+      ? console.log(`${pjSelec2.name} Ha ganado`)
+      : console.log(`${pjSelec1.name} Ha ganado`);
+  }
+};
