@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90vw;
+    height: 80vh;
+    padding: 1em;
+    background-color: blueviolet;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+    width: 80vw;
+    height: 50vh;
+}
+
+.selected{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: yellow;
+    width: 80vw;
+    height: 50vh;
+}
+
+.pj{
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 15em;
+    height: 15em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.botonera{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(181, 205, 92);
+}
+
+
+.botonera button{
+    background-color: indianred;
+    font-size: 2em;
+}
